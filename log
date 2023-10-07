@@ -59,3 +59,9 @@ Sat 07 Oct 2023 12:14:25 AM UTC:
  tests:  2|4
 total_score: 15/70
 e3c491d
+Sat 07 Oct 2023 12:19:44 AM UTC: 
+ sudoku.c | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
+ tests:  3|3
+total_score: 25/70
+9e1433e
