@@ -81,7 +81,7 @@ int is_valid(Node* n)
       {
         return 0;
       }
-      filas_verf[i][valor] = {0};
+      filas_verf[i][valor] = 1;
       columnas_verf[j][valor] = 1;
       sub_matriz_verf[sub_matriz_ind][valor] = 1;
     }
