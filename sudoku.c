@@ -121,51 +121,29 @@ int is_final(Node* n)
   }
   return 1;
 }
-Node* DFS(Node* initial, int* cont) {
-    Stack* stack = createStack();
-    push(stack, initial);
+Node* DFS(Node* initial, int* cont)
+{
+  Stack * stack = createStack();
+  push(stack, initial);
 
-    // Utilizar un conjunto para rastrear los estados visitados
-    // Esto evita agregar nodos duplicados a la pila
-    // Aquí se supone un conjunto simple basado en una matriz booleana
-    int visited[9][9] = {{0}};
+  while(is_empty(stack))
+  {
+    Node * current = top(stack);
+    pop(stack);
+    (*cont)++;
 
-    while (!is_empty(stack)) {
-        Node* current = top(stack);
-        pop(stack);
-        (*cont)++;
-
-        if (is_final(current)) {
-            // Se encontró una solución
-            return current;
-        }
-
-        // Obtener nodos adyacentes válidos y agregarlos a la pila
-        List* adj_nodes = get_adj_nodes(current);
-        Node* adj_node = first(adj_nodes);
-        while (adj_node) {
-            // Verificar si el estado ya fue visitado
-            int row = 0, col = 0;
-            // Calcular las coordenadas de la casilla modificada en adj_node
-            // (deberías implementar esta parte de acuerdo a tu estructura de datos)
-            if (!visited[row][col]) {
-                push(stack, adj_node);
-                visited[row][col] = 1; // Marcar el estado como visitado
-            } else {
-                // Liberar la memoria del nodo adyacente duplicado
-                free(adj_node);
-            }
-            adj_node = next(adj_nodes);
-        }
-
-        // Liberar memoria del nodo actual
-        free(current);
+    if(is_final(current))
+    {
+      return current;
     }
+    List * nodos_adj = get_adj_nodes(current);
+    Node * nodo_adj = first(nodos_adj);
+    
 
-    // No se encontró una solución
-    return NULL;
+    free(current);
+  }
+  return NULL;
 }
-
 /*
 int main( int argc, char *argv[] ){
 

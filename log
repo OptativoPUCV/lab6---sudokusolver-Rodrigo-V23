@@ -536,3 +536,14 @@ Sat 07 Oct 2023 02:29:41 AM UTC:
  tests:  6|2
 total_score: 45/70
 d9b6da9
+Sat 07 Oct 2023 02:35:13 AM UTC: 
+ sudoku.c | 38 ++++++++------------------------------
+ 1 file changed, 8 insertions(+), 30 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:140:12: error: unused variable ‘nodo_adj’ [-Werror=unused-variable]
+  140 |     Node * nodo_adj = first(nodos_adj);
+      |            ^~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+271f3e4
