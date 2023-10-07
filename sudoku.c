@@ -68,7 +68,7 @@ List* get_adj_nodes(Node* n)
     {
       if(n -> sudo[i][j] == 0)
       {
-        for(us k = 0 ; k <= 9 ; k++)
+        for(us k = 1 ; k < 9 ; k++)
         {
           Node * nodo_adj = copy(n);
           nodo_adj -> sudo[i][j] = k;
