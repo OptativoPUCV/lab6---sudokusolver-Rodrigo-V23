@@ -93,9 +93,16 @@ List* get_adj_nodes(Node* n)
         {
           Node * nodo_adj = copy(n);
           nodo_adj -> sudo[i][j] = k;
-          pushBack(lista, nodo_adj);
+
+          if(is_valid(nodo_adj))
+          {
+           pushBack(lista, nodo_adj); 
+          }
+          else
+          {
+            free(nodo_adj);
+          }
         }
-        return lista;
       }
     }
   }
