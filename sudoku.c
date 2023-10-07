@@ -138,7 +138,9 @@ Node* DFS(Node* initial, int* cont)
     }
     List * nodos_adj = get_adj_nodes(current);
     Node * nodo_adj = first(nodos_adj);
-    
+
+    push(stack, nodo_adj);
+    nodo_adj = next(nodos_adj);
 
     free(current);
   }
