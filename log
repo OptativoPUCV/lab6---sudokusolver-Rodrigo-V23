@@ -451,3 +451,14 @@ sudoku.c:149:5: note: previous definition of ‘main’ with type ‘int(int,  c
 cc1: all warnings being treated as errors
 Compilation failed
 c5bf886
+Sat 07 Oct 2023 02:05:33 AM UTC: 
+ sudoku.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:139:12: error: unused variable ‘nodos_adj’ [-Werror=unused-variable]
+  139 |     List * nodos_adj = get_adj_nodes(current);
+      |            ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+ed9d5c1
