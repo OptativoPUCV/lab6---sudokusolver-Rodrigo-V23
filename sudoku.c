@@ -140,7 +140,7 @@ Node* DFS(Node* initial, int* cont)
     Node * nodo_adj = first(nodos_adj);
 
     push(stack, nodo_adj);
-    nodo_adj = next(nodos_adj);
+    asdnodo_adj = next(nodos_adj);
 
     free(current);
   }
