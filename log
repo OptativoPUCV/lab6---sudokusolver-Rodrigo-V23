@@ -344,3 +344,15 @@ Sat 07 Oct 2023 01:41:25 AM UTC:
  tests:  6|2
 total_score: 45/70
 f82e931
+Sat 07 Oct 2023 01:42:52 AM UTC: 
+ sudoku.c | 32 ++++++++++++++++++++++++++++++--
+ 1 file changed, 30 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:136:13: error: implicit declaration of function ‘freeList’; did you mean ‘createList’? [-Werror=implicit-function-declaration]
+  136 |             freeList(stack); // Liberamos la memoria de la pila
+      |             ^~~~~~~~
+      |             createList
+cc1: all warnings being treated as errors
+Compilation failed
+8f790e7
