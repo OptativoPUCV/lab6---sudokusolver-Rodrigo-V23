@@ -468,3 +468,14 @@ Sat 07 Oct 2023 02:05:51 AM UTC:
  tests:  6|2
 total_score: 45/70
 646d23c
+Sat 07 Oct 2023 02:07:46 AM UTC: 
+ sudoku.c | 98 ++++++++++++++++++++++++----------------------------------------
+ 1 file changed, 37 insertions(+), 61 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:115:11: error: unused variable ‘nodos_adj’ [-Werror=unused-variable]
+  115 |     List *nodos_adj = get_adj_nodes(current);
+      |           ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+5c13f12
