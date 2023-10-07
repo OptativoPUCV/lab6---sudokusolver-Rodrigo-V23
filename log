@@ -260,3 +260,9 @@ sudoku.c:94:23: error: ‘nodo_adj’ undeclared (first use in this function)
 sudoku.c:94:23: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 71aed57
+Sat 07 Oct 2023 01:24:52 AM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  6|2
+total_score: 45/70
+b6f84a2
