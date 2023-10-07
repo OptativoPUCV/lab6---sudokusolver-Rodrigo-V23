@@ -121,27 +121,47 @@ int is_final(Node* n)
   }
   return 1;
 }
-Node* DFS(Node* initial, int* cont)
-{
-  Stack * stack = createStack();
-  push(stack, initial);
+Node* DFS(Node* n, int* cont) {
+    Stack* stack = createStack();
+    push(stack, n);
 
-  while(is_empty(stack))
-  {
-    Node * current = top(stack);
-    pop(stack);
-    (*cont)++;
+    while (!is_empty(stack)) {
+        Node* current = top(stack);
 
-    if(is_final(current))
-    {
-      return current;
+        // Verifica si el estado actual es final (solución)
+        if (is_final(current)) {
+            return current; // Se encontró una solución
+        }
+
+        // Obtiene los nodos adyacentes válidos
+        List* adj_nodes = get_adj_nodes(current);
+        
+        // Verifica si hay nodos adyacentes válidos
+        if (!is_empty(adj_nodes)) {
+            // Obtiene el primer nodo adyacente
+            Node* next_node = front(adj_nodes);
+            popFront(adj_nodes);
+
+            // Agrega el primer nodo adyacente al stack
+            push(stack, next_node);
+        } else {
+            // Si no hay nodos adyacentes válidos, elimina el nodo actual del stack
+            pop(stack);
+        }
+
+        // Libera la memoria de la lista de nodos adyacentes
+        clean(adj_nodes);
+        free(adj_nodes);
+
+        // Libera la memoria del nodo actual
+        free(current);
+
+        (*cont)++; // Incrementa el contador de iteraciones
     }
-    //List * nodos_adj = get_adj_nodes(current);
 
-    free(current);
-  }
-  return NULL;
+    return NULL; // No se encontró una solución
 }
+
 
 
 
