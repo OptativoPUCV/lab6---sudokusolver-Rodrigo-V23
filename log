@@ -123,3 +123,13 @@ Sat 07 Oct 2023 12:47:29 AM UTC:
  tests:  3|3
 total_score: 25/70
 ec43aa9
+Sat 07 Oct 2023 12:51:19 AM UTC: 
+ sudoku.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:84:30: error: expected expression before ‘{’ token
+   84 |       filas_verf[i][valor] = {0};
+      |                              ^
+Compilation failed
+c7b52de

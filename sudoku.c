@@ -56,7 +56,7 @@ int is_valid(Node* n)
 {
   us filas_verf[9][10] = {0};
   us columnas_verf[9][10] = {0};
-  //us sub_verf[9][10] = {0};
+  us sub_matriz_verf[9][10] = {0};
 
   for(us i = 0 ; i < 9 ; i++)
   {
@@ -76,7 +76,14 @@ int is_valid(Node* n)
       {
         return 0;
       }
-      
+      us sub_matriz_ind = 3 * (i / 3) + (j + 3);
+      if(sub_matriz_verf[sub_matriz_ind][valor])
+      {
+        return 0;
+      }
+      filas_verf[i][valor] = {0};
+      columnas_verf[j][valor] = 1;
+      sub_matriz_verf[sub_matriz_ind][valor] = 1;
     }
   }
   return 1;
