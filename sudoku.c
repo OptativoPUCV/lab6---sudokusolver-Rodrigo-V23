@@ -52,36 +52,10 @@ void print_node(Node* n)
   }
   printf("\n");
 }
-int is_valid(Node* n) {
-    int rows[9][10] = {0}; // Para comprobar filas (inicializado con ceros)
-    int cols[9][10] = {0}; // Para comprobar columnas (inicializado con ceros)
-    int subgrids[9][10] = {0}; // Para comprobar submatrices de 3x3 (inicializado con ceros)
-
-    for (int i = 0; i < 9; i++) {
-        for (int j = 0; j < 9; j++) {
-            int num = n->sudo[i][j];
-            if (num == 0) continue; // Casilla vacía
-
-            // Verifica si el número ya se ha encontrado en la fila
-            if (rows[i][num] == 1) return 0;
-            rows[i][num] = 1;
-
-            // Verifica si el número ya se ha encontrado en la columna
-            if (cols[j][num] == 1) return 0;
-            cols[j][num] = 1;
-
-            // Calcula el índice de la submatriz de 3x3
-            int subgrid_index = (i / 3) * 3 + (j / 3);
-
-            // Verifica si el número ya se ha encontrado en la submatriz
-            if (subgrids[subgrid_index][num] == 1) return 0;
-            subgrids[subgrid_index][num] = 1;
-        }
-    }
-
-    return 1; // Si no se encontraron duplicados, el nodo es válido
+int is_valid(Node* n)
+{
+  return 1;
 }
-
 List* get_adj_nodes(Node* n)
 {
   List * lista = createList();
