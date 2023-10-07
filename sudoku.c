@@ -92,9 +92,9 @@ List* get_adj_nodes(Node* n)
         for(us k = 1 ; k <= 9 ; k++)
         {
           Node * nodo_adj = copy(n);
+          nodo_adj -> sudo[i][j] = k;
           if(is_valid(nodo_adj))
           {
-            nodo_adj -> sudo[i][j] = k;
             pushBack(lista, nodo_adj); 
           }
           else
