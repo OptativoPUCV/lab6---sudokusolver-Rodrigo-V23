@@ -157,3 +157,24 @@ Sat 07 Oct 2023 12:55:53 AM UTC:
  tests:  3|3
 total_score: 25/70
 5e27b71
+Sat 07 Oct 2023 12:56:00 AM UTC: 
+ sudoku.c | 1 +
+ 1 file changed, 1 insertion(+)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:57:3: error: ‘cdscas’ undeclared (first use in this function)
+   57 |   cdscas
+      |   ^~~~~~
+sudoku.c:57:3: note: each undeclared identifier is reported only once for each function it appears in
+sudoku.c:57:9: error: expected ‘;’ before ‘return’
+   57 |   cdscas
+      |         ^
+      |         ;
+   58 |   return 1;
+      |   ~~~~~~ 
+sudoku.c:59:1: error: control reaches end of non-void function [-Werror=return-type]
+   59 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+ef5bd87
