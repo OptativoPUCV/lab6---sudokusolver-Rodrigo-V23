@@ -65,3 +65,21 @@ Sat 07 Oct 2023 12:19:44 AM UTC:
  tests:  3|3
 total_score: 25/70
 9e1433e
+Sat 07 Oct 2023 12:39:03 AM UTC: 
+ sudoku.c | 26 +++++++++++++++++++++++++-
+ 1 file changed, 25 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:99:21: error: ‘n’ undeclared (first use in this function)
+   99 |   push(lista_stack, n);
+      |                     ^
+sudoku.c:99:21: note: each undeclared identifier is reported only once for each function it appears in
+sudoku.c:114:5: error: this ‘while’ clause does not guard... [-Werror=misleading-indentation]
+  114 |     while(nodo_adj != NULL);
+      |     ^~~~~
+sudoku.c:115:5: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘while’
+  115 |     {
+      |     ^
+cc1: all warnings being treated as errors
+Compilation failed
+65b9834
