@@ -83,3 +83,14 @@ sudoku.c:115:5: note: ...this statement, but the latter is misleadingly indented
 cc1: all warnings being treated as errors
 Compilation failed
 65b9834
+Sat 07 Oct 2023 12:39:24 AM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:99:21: error: ‘n’ undeclared (first use in this function)
+   99 |   push(lista_stack, n);
+      |                     ^
+sudoku.c:99:21: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+030a4a2

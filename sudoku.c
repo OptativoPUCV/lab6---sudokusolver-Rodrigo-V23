@@ -111,7 +111,7 @@ Node* DFS(Node* initial, int* cont)
     List * nodos_adj = get_adj_nodes(current);
     Node * nodo_adj = (Node *) front(nodos_adj);
 
-    while(nodo_adj != NULL);
+    while(nodo_adj != NULL)
     {
       push(lista_stack, nodo_adj);
       nodo_adj = (Node*) next(nodos_adj);
