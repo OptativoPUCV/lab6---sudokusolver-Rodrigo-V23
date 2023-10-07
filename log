@@ -565,3 +565,9 @@ sudoku.c:143:5: error: ‘asdnodo_adj’ undeclared (first use in this function)
 sudoku.c:143:5: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 67bbe5d
+Sat 07 Oct 2023 02:40:53 AM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  6|2
+total_score: 45/70
+ced40a7
