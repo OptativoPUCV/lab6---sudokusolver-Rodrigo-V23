@@ -1,87 +1,104 @@
-#include "list.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "list.h"
 
 typedef unsigned short us;
 
-typedef struct {
-  int sudo[9][9];
-} Node;
+typedef struct
+{
+   int sudo[9][9];
+}Node;
 
-Node *createNode() {
-  Node *n = (Node *)malloc(sizeof(Node));
+Node* createNode()
+{
+  Node* n=(Node*) malloc(sizeof(Node));
   return n;
 }
-Node *copy(Node *n) {
-  Node *new = (Node *)malloc(sizeof(Node));
+Node* copy(Node* n)
+{
+  Node* new=(Node*) malloc(sizeof(Node));
   *new = *n;
   return new;
 }
-Node *read_file(char *file_name) {
-  Node *n = createNode();
-  FILE *file = fopen(file_name, "r");
-  int i, j;
-  for (i = 0; i < 9; i++) {
-    for (j = 0; j < 9; j++) {
-      if (!fscanf(file, "%d", &n->sudo[i][j])) {
-        printf("failed to read data!");
-      }
-    }
+Node* read_file (char* file_name)
+{
+  Node* n = createNode();
+  FILE* file = fopen (file_name, "r");
+  int i,j;
+  for(i=0;i<9;i++)
+  {
+   for(j=0;j<9;j++)
+   {
+    if(!fscanf (file, "%d", &n->sudo[i][j]))
+    {
+      printf("failed to read data!");
+    } 
+   }
   }
 
-  fclose(file);
+  fclose (file);
   return n;
 }
-void print_node(Node *n) {
-  int i, j;
-  for (i = 0; i < 9; i++) {
-    for (j = 0; j < 9; j++) {
+void print_node(Node* n)
+{
+  int i,j;
+  for(i=0;i<9;i++)
+  {
+    for(j=0;j<9;j++)
+    {
       printf("%d ", n->sudo[i][j]);
     }
     printf("\n");
   }
   printf("\n");
 }
-int is_valid(Node *n) {
+int is_valid(Node* n)
+{
   us filas[9][10] = {0};
   us columnas[9][10] = {0};
   us sub_matriz[9][10] = {0};
 
-  for (us i = 0; i < 9; i++) {
-    for (us j = 0; j < 9; j++) {
-      us valor = n->sudo[i][j];
-      if (valor == 0)
-        continue;
+  for(us i = 0 ; i < 9 ; i++)
+  {
+    for(us j = 0 ; j < 9 ; j++)
+    {
+      us valor = n -> sudo[i][j];
+      if(valor == 0) continue;
 
-      if (filas[i][valor] == 1)
-        return 0;
+      if(filas[i][valor] == 1) return 0;
       filas[i][valor] = 1;
 
-      if (columnas[j][valor] == 1)
-        return 0;
+      if(columnas[j][valor] == 1) return 0;
       columnas[j][valor] = 1;
 
       us sub_matriz_ind = (i / 3) * 3 + (j / 3);
 
-      if (sub_matriz[sub_matriz_ind][valor] == 1)
-        return 0;
+      if(sub_matriz[sub_matriz_ind][valor] == 1) return 0;
       sub_matriz[sub_matriz_ind][valor] = 1;
     }
   }
   return 1;
 }
-List *get_adj_nodes(Node *n) {
-  List *lista = createList();
+List* get_adj_nodes(Node* n)
+{
+  List * lista = createList();
 
-  for (us i = 0; i < 9; i++) {
-    for (us j = 0; j < 9; j++) {
-      if (n->sudo[i][j] == 0) {
-        for (us k = 1; k <= 9; k++) {
-          Node *nodo_adj = copy(n);
-          nodo_adj->sudo[i][j] = k;
-          if (is_valid(nodo_adj)) {
-            pushBack(lista, nodo_adj);
-          } else {
+  for(us i = 0 ; i < 9 ; i++)
+  {
+    for(us j = 0 ; j < 9 ; j++)
+    {
+      if(n -> sudo[i][j] == 0)
+      {
+        for(us k = 1 ; k <= 9 ; k++)
+        {
+          Node * nodo_adj = copy(n);
+          nodo_adj -> sudo[i][j] = k;
+          if(is_valid(nodo_adj))
+          {
+            pushBack(lista, nodo_adj); 
+          }
+          else
+          {
             free(nodo_adj);
           }
         }
@@ -90,34 +107,43 @@ List *get_adj_nodes(Node *n) {
   }
   return lista;
 }
-int is_final(Node *n) {
-  for (us i = 0; i < 9; i++) {
-    for (us j = 0; j < 9; j++) {
-      if (n->sudo[i][j] == 0) {
+int is_final(Node* n)
+{
+  for(us i = 0 ; i < 9 ; i++)
+  {
+    for(us j = 0 ; j < 9 ; j++)
+    {
+      if(n -> sudo[i][j] == 0)
+      {
         return 0;
       }
-    }
+    } 
   }
   return 1;
 }
-Node *DFS(Node *initial, int *cont) {
-  Stack *stack = createStack();
+Node* DFS(Node* initial, int* cont)
+{
+  Stack * stack = createStack();
   push(stack, initial);
 
-  while (is_empty(stack)) {
-    Node *current = top(stack);
+  while(is_empty(stack))
+  {
+    Node * current = top(stack);
     pop(stack);
     (*cont)++;
 
-    if (is_final(current)) {
+    if(is_final(current))
+    {
       return current;
     }
-    List *nodos_adj = get_adj_nodes(current);
+    List * nodos_adj = get_adj_nodes(current);
 
     free(current);
   }
   return NULL;
 }
+
+
 
 /*
 int main( int argc, char *argv[] ){

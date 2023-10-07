@@ -479,3 +479,14 @@ sudoku.c:115:11: error: unused variable ‘nodos_adj’ [-Werror=unused-variable
 cc1: all warnings being treated as errors
 Compilation failed
 5c13f12
+Sat 07 Oct 2023 02:12:50 AM UTC: 
+ sudoku.c | 96 ++++++++++++++++++++++++++++++++++++++++------------------------
+ 1 file changed, 60 insertions(+), 36 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:139:12: error: unused variable ‘nodos_adj’ [-Werror=unused-variable]
+  139 |     List * nodos_adj = get_adj_nodes(current);
+      |            ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+5e6ba1e
