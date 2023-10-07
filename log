@@ -209,3 +209,43 @@ Sat 07 Oct 2023 01:15:04 AM UTC:
  tests:  6|2
 total_score: 45/70
 929f6e2
+Sat 07 Oct 2023 01:17:52 AM UTC: 
+ sudoku.c | 33 ++++++++++-----------------------
+ 1 file changed, 10 insertions(+), 23 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘get_valid_adj_nodes’:
+sudoku.c:83:22: error: implicit declaration of function ‘get_adj_nodes’; did you mean ‘get_valid_adj_nodes’? [-Werror=implicit-function-declaration]
+   83 |    List* adj_nodes = get_adj_nodes(n);
+      |                      ^~~~~~~~~~~~~
+      |                      get_valid_adj_nodes
+sudoku.c:83:22: error: initialization of ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+sudoku.c:87:19: error: implicit declaration of function ‘getFirst’ [-Werror=implicit-function-declaration]
+   87 |    for (current = getFirst(adj_nodes); current != NULL; current = getNext(adj_nodes)) {
+      |                   ^~~~~~~~
+sudoku.c:87:17: error: assignment to ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   87 |    for (current = getFirst(adj_nodes); current != NULL; current = getNext(adj_nodes)) {
+      |                 ^
+sudoku.c:87:67: error: implicit declaration of function ‘getNext’ [-Werror=implicit-function-declaration]
+   87 |    for (current = getFirst(adj_nodes); current != NULL; current = getNext(adj_nodes)) {
+      |                                                                   ^~~~~~~
+sudoku.c:87:65: error: assignment to ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   87 |    for (current = getFirst(adj_nodes); current != NULL; current = getNext(adj_nodes)) {
+      |                                                                 ^
+sudoku.c:93:4: error: implicit declaration of function ‘freeList’; did you mean ‘createList’? [-Werror=implicit-function-declaration]
+   93 |    freeList(adj_nodes);
+      |    ^~~~~~~~
+      |    createList
+test.c: In function ‘adj_test1’:
+test.c:62:17: error: initialization of ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   62 |     List* adj = get_adj_nodes(initial);
+      |                 ^~~~~~~~~~~~~
+test.c:95:9: error: assignment to ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   95 |     adj = get_adj_nodes(initial);
+      |         ^
+test.c: In function ‘test_mod_adj’:
+test.c:155:17: error: initialization of ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  155 |     List* adj = get_adj_nodes(initial);
+      |                 ^~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+77a22c4

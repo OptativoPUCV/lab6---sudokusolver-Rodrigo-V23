@@ -79,33 +79,20 @@ int is_valid(Node* n)
   }
   return 1;
 }
-List* get_adj_nodes(Node* n) {
-    List* valid_nodes = createList();
+List* get_valid_adj_nodes(Node* n) {
+   List* adj_nodes = get_adj_nodes(n);
+   List* valid_adj_nodes = createList();
 
-    for (int i = 0; i < 9; i++) {
-        for (int j = 0; j < 9; j++) {
-            if (n->sudo[i][j] == 0) {
-                // Casilla vacía, podemos colocar un número del 1 al 9
-                for (int num = 1; num <= 9; num++) {
-                    // Crea una copia del nodo actual
-                    Node* new_node = copy(n);
-                    // Coloca el número en la casilla vacía
-                    new_node->sudo[i][j] = num;
-                    
-                    // Verifica si el nuevo nodo es válido
-                    if (is_valid(new_node)) {
-                        // Si es válido, agrégalo a la lista de nodos válidos
-                        pushBack(valid_nodes, new_node);
-                    } else {
-                        // Si no es válido, libera la memoria del nodo
-                        free(new_node);
-                    }
-                }
-            }
-        }
-    }
+   Node* current = NULL;
+   for (current = getFirst(adj_nodes); current != NULL; current = getNext(adj_nodes)) {
+       if (is_valid(current)) {
+           pushBack(valid_adj_nodes, current);
+       }
+   }
 
-    return valid_nodes;
+   freeList(adj_nodes);
+
+   return valid_adj_nodes;
 }
 int is_final(Node* n)
 {
