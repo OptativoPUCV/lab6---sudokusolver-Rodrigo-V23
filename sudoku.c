@@ -146,7 +146,7 @@ Node* DFS(Node* initial, int* cont) {
             adj_node = (Node*)next(adj_nodes);
         }
 
-        freeList(adj_nodes);
+        free(adj_nodes);
     }
 
     // Si terminamos de explorar y no encontramos una solución, devolvemos NULL
