@@ -133,7 +133,7 @@ Node* DFS(Node* initial, int* cont) {
 
         if (is_final(current)) {
             // Si el nodo actual es final, hemos encontrado una solución
-            freeList(stack); // Liberamos la memoria de la pila
+            free(stack); // Liberamos la memoria de la pila
             return current;
         }
 
