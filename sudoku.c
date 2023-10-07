@@ -54,7 +54,31 @@ void print_node(Node* n)
 }
 int is_valid(Node* n)
 {
-  
+  us filas_verf[9][10] = {0};
+  us columnas_verf[9][10] = {0};
+  us sub_verf[9][10] = {0};
+
+  for(us i = 0 ; i < 9 ; i++)
+  {
+    for(us j = 0 ; j < 9 ; j++)
+    {
+      us valor = n -> sudo[i][j];
+
+      if(valor < 1 || valor > 9)
+      {
+        return 0;
+      }
+      if(filas_verf[i][valor])
+      {
+        return 0;
+      }
+      if(columnas_verf[j][valor])
+      {
+        return 0;
+      }
+      
+    }
+  }
   return 1;
 }
 List* get_adj_nodes(Node* n)
