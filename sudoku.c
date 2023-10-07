@@ -136,15 +136,12 @@ Node* DFS(Node* initial, int* cont)
     {
       return current;
     }
-    List * nodos_adj = get_adj_nodes(current);
+    //List * nodos_adj = get_adj_nodes(current);
 
     free(current);
   }
   return NULL;
 }
-
-
-
 /*
 int main( int argc, char *argv[] ){
 

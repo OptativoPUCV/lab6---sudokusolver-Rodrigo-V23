@@ -490,3 +490,9 @@ sudoku.c:139:12: error: unused variable ‘nodos_adj’ [-Werror=unused-variable
 cc1: all warnings being treated as errors
 Compilation failed
 5e6ba1e
+Sat 07 Oct 2023 02:13:05 AM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  6|2
+total_score: 45/70
+8e4f342
