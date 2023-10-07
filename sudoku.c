@@ -127,7 +127,6 @@ Node* DFS(Node* initial, int* cont) {
 
     // Utilizar un conjunto para rastrear los estados visitados
     // Esto evita agregar nodos duplicados a la pila
-    // Puedes implementar un conjunto personalizado o utilizar una biblioteca de conjuntos
     // Aquí se supone un conjunto simple basado en una matriz booleana
     int visited[9][9] = {{0}};
 
