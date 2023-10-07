@@ -53,43 +53,33 @@ void print_node(Node* n)
   printf("\n");
 }
 int is_valid(Node* n) {
-    int row_check[9][10] = {0}; // Para verificar filas
-    int col_check[9][10] = {0}; // Para verificar columnas
-    int subgrid_check[9][10] = {0}; // Para verificar submatrices 3x3
+    int rows[9][10] = {0}; // Para comprobar filas (inicializado con ceros)
+    int cols[9][10] = {0}; // Para comprobar columnas (inicializado con ceros)
+    int subgrids[9][10] = {0}; // Para comprobar submatrices de 3x3 (inicializado con ceros)
 
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
             int num = n->sudo[i][j];
+            if (num == 0) continue; // Casilla vacía
 
-            // Verificar si el número está dentro del rango válido (1-9)
-            if (num < 1 || num > 9) {
-                return 0; // No es válido
-            }
+            // Verifica si el número ya se ha encontrado en la fila
+            if (rows[i][num] == 1) return 0;
+            rows[i][num] = 1;
 
-            // Verificar si el número ya apareció en la misma fila
-            if (row_check[i][num]) {
-                return 0; // No es válido
-            }
+            // Verifica si el número ya se ha encontrado en la columna
+            if (cols[j][num] == 1) return 0;
+            cols[j][num] = 1;
 
-            // Verificar si el número ya apareció en la misma columna
-            if (col_check[j][num]) {
-                return 0; // No es válido
-            }
+            // Calcula el índice de la submatriz de 3x3
+            int subgrid_index = (i / 3) * 3 + (j / 3);
 
-            // Verificar si el número ya apareció en la misma submatriz 3x3
-            int subgrid_index = 3 * (i / 3) + (j / 3);
-            if (subgrid_check[subgrid_index][num]) {
-                return 0; // No es válido
-            }
-
-            // Marcar el número como encontrado en las estructuras de verificación
-            row_check[i][num] = 1;
-            col_check[j][num] = 1;
-            subgrid_check[subgrid_index][num] = 1;
+            // Verifica si el número ya se ha encontrado en la submatriz
+            if (subgrids[subgrid_index][num] == 1) return 0;
+            subgrids[subgrid_index][num] = 1;
         }
     }
 
-    return 1; // Es válido
+    return 1; // Si no se encontraron duplicados, el nodo es válido
 }
 
 List* get_adj_nodes(Node* n)
