@@ -52,42 +52,46 @@ void print_node(Node* n)
   }
   printf("\n");
 }
-int is_valid(Node* n)
-{
-  us filas_verf[9][10] = {0};
-  us columnas_verf[9][10] = {0};
-  us sub_matriz_verf[9][10] = {0};
+int is_valid(Node* n) {
+    int row_check[9][10] = {0}; // Para verificar filas
+    int col_check[9][10] = {0}; // Para verificar columnas
+    int subgrid_check[9][10] = {0}; // Para verificar submatrices 3x3
 
-  for(us i = 0 ; i < 9 ; i++)
-  {
-    for(us j = 0 ; j < 9 ; j++)
-    {
-      us valor = n -> sudo[i][j];
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            int num = n->sudo[i][j];
 
-      if(valor < 1 || valor > 9)
-      {
-        return 0;
-      }
-      if(filas_verf[i][valor])
-      {
-        return 0;
-      }
-      if(columnas_verf[j][valor])
-      {
-        return 0;
-      }
-      us sub_matriz_ind = 3 * (i / 3) + (j + 3);
-      if(sub_matriz_verf[sub_matriz_ind][valor])
-      {
-        return 0;
-      }
-      filas_verf[i][valor] = 1;
-      columnas_verf[j][valor] = 1;
-      sub_matriz_verf[sub_matriz_ind][valor] = 1;
+            // Verificar si el número está dentro del rango válido (1-9)
+            if (num < 1 || num > 9) {
+                return 0; // No es válido
+            }
+
+            // Verificar si el número ya apareció en la misma fila
+            if (row_check[i][num]) {
+                return 0; // No es válido
+            }
+
+            // Verificar si el número ya apareció en la misma columna
+            if (col_check[j][num]) {
+                return 0; // No es válido
+            }
+
+            // Verificar si el número ya apareció en la misma submatriz 3x3
+            int subgrid_index = 3 * (i / 3) + (j / 3);
+            if (subgrid_check[subgrid_index][num]) {
+                return 0; // No es válido
+            }
+
+            // Marcar el número como encontrado en las estructuras de verificación
+            row_check[i][num] = 1;
+            col_check[j][num] = 1;
+            subgrid_check[subgrid_index][num] = 1;
+        }
     }
-  }
-  return 1;
+
+    return 1; // Es válido
 }
+
 List* get_adj_nodes(Node* n)
 {
   List * lista = createList();
