@@ -388,3 +388,25 @@ sudoku.c:139:12: error: unused variable ‘nodos_adj’ [-Werror=unused-variable
 cc1: all warnings being treated as errors
 Compilation failed
 ec9fb54
+Sat 07 Oct 2023 01:57:04 AM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:137:14: error: returning ‘List *’ from a function with incompatible return type ‘Node *’ [-Werror=incompatible-pointer-types]
+  137 |       return current;
+      |              ^~~~~~~
+sudoku.c:139:38: error: passing argument 1 of ‘get_adj_nodes’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  139 |     List * nodos_adj = get_adj_nodes(current);
+      |                                      ^~~~~~~
+      |                                      |
+      |                                      List *
+sudoku.c:82:27: note: expected ‘Node *’ but argument is of type ‘List *’
+   82 | List* get_adj_nodes(Node* n)
+      |                     ~~~~~~^
+sudoku.c:139:12: error: unused variable ‘nodos_adj’ [-Werror=unused-variable]
+  139 |     List * nodos_adj = get_adj_nodes(current);
+      |            ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+d711538
