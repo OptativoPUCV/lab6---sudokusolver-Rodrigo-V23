@@ -2,56 +2,83 @@
 #include <stdlib.h>
 #include "list.h"
 
+typedef unsigned short us;
 
-typedef struct{
+typedef struct
+{
    int sudo[9][9];
 }Node;
 
-Node* createNode(){
+Node* createNode()
+{
   Node* n=(Node*) malloc(sizeof(Node));
   return n;
 }
-
-Node* copy(Node* n){
-    Node* new=(Node*) malloc(sizeof(Node));
-    *new = *n;
-    return new;
+Node* copy(Node* n)
+{
+  Node* new=(Node*) malloc(sizeof(Node));
+  *new = *n;
+  return new;
 }
-
-Node* read_file (char* file_name){
+Node* read_file (char* file_name)
+{
   Node* n = createNode();
   FILE* file = fopen (file_name, "r");
   int i,j;
-  for(i=0;i<9;i++){
-       for(j=0;j<9;j++){
-          if(!fscanf (file, "%d", &n->sudo[i][j]))
-            printf("failed to read data!");
-       }
+  for(i=0;i<9;i++)
+  {
+   for(j=0;j<9;j++)
+   {
+    if(!fscanf (file, "%d", &n->sudo[i][j]))
+    {
+      printf("failed to read data!");
+    } 
+   }
   }
 
   fclose (file);
   return n;
 }
-
-void print_node(Node* n){
-    int i,j;
-    for(i=0;i<9;i++){
-       for(j=0;j<9;j++)
-          printf("%d ", n->sudo[i][j]);
-       printf("\n");
+void print_node(Node* n)
+{
+  int i,j;
+  for(i=0;i<9;i++)
+  {
+    for(j=0;j<9;j++)
+    {
+      printf("%d ", n->sudo[i][j]);
     }
     printf("\n");
+  }
+  printf("\n");
+}
+int is_valid(Node* n)
+{
+  return 1;
 }
 
-int is_valid(Node* n){
 
-    return 1;
-}
+List* get_adj_nodes(Node* n)
+{
+  List * list = createList();
 
-
-List* get_adj_nodes(Node* n){
-    List* list=createList();
-    return list;
+  for(us i = 0 ; i < 9 ; i++)
+  {
+    for(us j = 0 ; j < 9 ; j++)
+    {
+      if(n -> sudo[i][j] == 0)
+      {
+        for(us k = 0 ; k < 9 ; k++)
+        {
+          Node * nodo_adj = copy(n);
+          nodo_adj -> sudo[i][j] = k;
+          pushBack(List, nodo_adj);
+        }
+        return List;
+      }
+    }
+  }
+  return list;
 }
 
 

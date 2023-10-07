@@ -2,3 +2,24 @@ Fri 06 Oct 2023 09:11:04 PM UTC:
  tests:  0|5
 total_score: 0/70
 d8451bc
+Sat 07 Oct 2023 12:08:25 AM UTC: 
+ sudoku.c | 57 ++++++++++++++++++++++++++++++++++++++++++---------------
+ 1 file changed, 42 insertions(+), 15 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:75:20: error: expected expression before ‘List’
+   75 |           pushBack(List, nodo_adj);
+      |                    ^~~~
+sudoku.c:75:11: error: too few arguments to function ‘pushBack’
+   75 |           pushBack(List, nodo_adj);
+      |           ^~~~~~~~
+In file included from test.c:4:
+list.h:23:6: note: declared here
+   23 | void pushBack(List* list, void* data);
+      |      ^~~~~~~~
+In file included from test.c:5:
+sudoku.c:77:16: error: expected expression before ‘List’
+   77 |         return List;
+      |                ^~~~
+Compilation failed
+8e429b1
