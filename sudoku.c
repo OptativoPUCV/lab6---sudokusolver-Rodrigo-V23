@@ -60,7 +60,7 @@ int is_valid(Node* n)
 
 List* get_adj_nodes(Node* n)
 {
-  List * list = createList();
+  List * lista = createList();
 
   for(us i = 0 ; i < 9 ; i++)
   {
@@ -72,13 +72,13 @@ List* get_adj_nodes(Node* n)
         {
           Node * nodo_adj = copy(n);
           nodo_adj -> sudo[i][j] = k;
-          pushBack(List, nodo_adj);
+          pushBack(lista, nodo_adj);
         }
-        return List;
+        return lista;
       }
     }
   }
-  return list;
+  return lista;
 }
 
 
