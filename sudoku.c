@@ -54,7 +54,29 @@ void print_node(Node* n)
 }
 int is_valid(Node* n)
 {
-  cdscas
+  us filas[9][10] = {0};
+  us columnas[9][10] = {0};
+  us sub_matriz[9][10] = {0};
+
+  for(us i = 0 ; i < 9 ; i++)
+  {
+    for(us j = 0 ; j < 9 ; j++)
+    {
+      us valor = n -> sudo[i][j];
+      if(valor == 0) continue;
+
+      if(filas[i][valor] == 1) return 0;
+      filas[i][valor] = 1;
+
+      if(columnas[j][valor] == 1) return 0;
+      columnas[j][valor] = 1;
+
+      us sub_matriz_ind = (i / 3) * 3 + (j / 3);
+
+      if(sub_matriz[sub_matriz_ind][valor] == 1) return 0;
+      sub_matriz[sub_matriz_ind][valor] = 1
+    }
+  }
   return 1;
 }
 List* get_adj_nodes(Node* n)

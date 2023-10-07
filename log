@@ -178,3 +178,16 @@ sudoku.c:59:1: error: control reaches end of non-void function [-Werror=return-t
 cc1: all warnings being treated as errors
 Compilation failed
 ef5bd87
+Sat 07 Oct 2023 01:10:15 AM UTC: 
+ sudoku.c | 24 +++++++++++++++++++++++-
+ 1 file changed, 23 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:77:44: error: expected ‘;’ before ‘}’ token
+   77 |       sub_matriz[sub_matriz_ind][valor] = 1
+      |                                            ^
+      |                                            ;
+   78 |     }
+      |     ~                                       
+Compilation failed
+b472ca9
