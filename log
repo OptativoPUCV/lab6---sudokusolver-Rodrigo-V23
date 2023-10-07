@@ -367,3 +367,24 @@ sudoku.c:139:15: error: unused variable ‘adj_nodes’ [-Werror=unused-variable
 cc1: all warnings being treated as errors
 Compilation failed
 b3b7ff9
+Sat 07 Oct 2023 01:55:27 AM UTC: 
+ sudoku.c | 28 ++++++++++------------------
+ 1 file changed, 10 insertions(+), 18 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:135:17: error: passing argument 1 of ‘is_empty’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  135 |     if(is_empty(current))
+      |                 ^~~~~~~
+      |                 |
+      |                 Node *
+In file included from test.c:4:
+list.h:14:20: note: expected ‘List *’ but argument is of type ‘Node *’
+   14 | int is_empty(List* list);
+      |              ~~~~~~^~~~
+In file included from test.c:5:
+sudoku.c:139:12: error: unused variable ‘nodos_adj’ [-Werror=unused-variable]
+  139 |     List * nodos_adj = get_adj_nodes(current);
+      |            ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+ec9fb54
