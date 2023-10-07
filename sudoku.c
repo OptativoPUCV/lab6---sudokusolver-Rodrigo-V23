@@ -128,11 +128,11 @@ Node* DFS(Node* initial, int* cont)
 
   while(is_empty(stack))
   {
-    List * current = top(stack);
+    Node * current = top(stack);
     pop(stack);
     (*cont)++;
 
-    if(is_empty(current))
+    if(is_final(current))
     {
       return current;
     }
