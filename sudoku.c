@@ -74,7 +74,7 @@ int is_valid(Node* n)
       us sub_matriz_ind = (i / 3) * 3 + (j / 3);
 
       if(sub_matriz[sub_matriz_ind][valor] == 1) return 0;
-      sub_matriz[sub_matriz_ind][valor] = 1
+      sub_matriz[sub_matriz_ind][valor] = 1;
     }
   }
   return 1;
