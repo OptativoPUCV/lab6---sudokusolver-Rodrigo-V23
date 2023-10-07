@@ -79,20 +79,33 @@ int is_valid(Node* n)
   }
   return 1;
 }
-List* get_valid_adj_nodes(Node* n) {
-   List* adj_nodes = get_adj_nodes(n);
-   List* valid_adj_nodes = createList();
+List* get_adj_nodes(Node* n)
+{
+  List * lista = createList();
 
-   Node* current = NULL;
-   for (current = getFirst(adj_nodes); current != NULL; current = getNext(adj_nodes)) {
-       if (is_valid(current)) {
-           pushBack(valid_adj_nodes, current);
-       }
-   }
-
-   freeList(adj_nodes);
-
-   return valid_adj_nodes;
+  for(us i = 0 ; i < 9 ; i++)
+  {
+    for(us j = 0 ; j < 9 ; j++)
+    {
+      if(n -> sudo[i][j] == 0)
+      {
+        for(us k = 1 ; k <= 9 ; k++)
+        {
+          if(is_valid(nodo_adj))
+          {
+            Node * nodo_adj = copy(n);
+            nodo_adj -> sudo[i][j] = k;
+            pushBack(lista, nodo_adj); 
+          }
+          else
+          {
+            free(nodo_adj);
+          }
+        }
+      }
+    }
+  }
+  return lista;
 }
 int is_final(Node* n)
 {

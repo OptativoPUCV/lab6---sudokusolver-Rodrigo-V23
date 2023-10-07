@@ -249,3 +249,14 @@ test.c:155:17: error: initialization of ‘List *’ from ‘int’ makes pointe
 cc1: all warnings being treated as errors
 Compilation failed
 77a22c4
+Sat 07 Oct 2023 01:24:36 AM UTC: 
+ sudoku.c | 35 ++++++++++++++++++++++++-----------
+ 1 file changed, 24 insertions(+), 11 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:94:23: error: ‘nodo_adj’ undeclared (first use in this function)
+   94 |           if(is_valid(nodo_adj))
+      |                       ^~~~~~~~
+sudoku.c:94:23: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+71aed57
