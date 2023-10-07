@@ -356,3 +356,14 @@ sudoku.c:136:13: error: implicit declaration of function ‘freeList’; did you
 cc1: all warnings being treated as errors
 Compilation failed
 8f790e7
+Sat 07 Oct 2023 01:46:36 AM UTC: 
+ sudoku.c | 27 ++++++++++++---------------
+ 1 file changed, 12 insertions(+), 15 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:139:15: error: unused variable ‘adj_nodes’ [-Werror=unused-variable]
+  139 |         List* adj_nodes = get_adj_nodes(current);
+      |               ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+b3b7ff9

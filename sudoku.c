@@ -121,38 +121,36 @@ int is_final(Node* n)
   }
   return 1;
 }
-Node* DFS(Node* initial, int* cont) {
+Node* DFS(Node* n, int* cont) {
     Stack* stack = createStack();
-    push(stack, initial);
+    push(stack, n);
 
     while (!is_empty(stack)) {
-        Node* current = (Node*)top(stack);
+        Node* current = top(stack);
         pop(stack);
 
         (*cont)++; // Incrementa el contador de iteraciones
 
         if (is_final(current)) {
-            // Si el nodo actual es final, hemos encontrado una solución
-            freeList(stack); // Liberamos la memoria de la pila
+            // Hemos encontrado una solución, puedes imprimir el tablero aquí
             return current;
         }
 
         List* adj_nodes = get_adj_nodes(current);
-        Node* adj_node = (Node*)front(adj_nodes);
 
-        while (adj_node != NULL) {
-            // Si el nodo adyacente es válido, lo agregamos a la pila
-            push(stack, adj_node);
-            adj_node = (Node*)next(adj_nodes);
-        }
+        // Agrega los nodos adyacentes válidos a la pila
+        // y libera la memoria de los nodos que no se usarán
+        // (asegúrate de liberar los nodos que no agregues a la pila)
+        
+        // ...
 
-        freeList(adj_nodes);
+        // No olvides liberar la memoria del nodo actual
+        free(current);
     }
 
-    // Si terminamos de explorar y no encontramos una solución, devolvemos NULL
-    freeList(stack); // Liberamos la memoria de la pila
-    return NULL;
+    return NULL; // No se encontró una solución
 }
+
 
 
 
