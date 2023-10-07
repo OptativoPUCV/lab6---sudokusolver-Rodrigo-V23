@@ -56,7 +56,7 @@ int is_valid(Node* n)
 {
   us filas_verf[9][10] = {0};
   us columnas_verf[9][10] = {0};
-  us sub_verf[9][10] = {0};
+  //us sub_verf[9][10] = {0};
 
   for(us i = 0 ; i < 9 ; i++)
   {

@@ -117,3 +117,9 @@ sudoku.c:59:6: error: unused variable ‘sub_verf’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 051debd
+Sat 07 Oct 2023 12:47:29 AM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  3|3
+total_score: 25/70
+ec43aa9
